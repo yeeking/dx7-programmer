@@ -11,7 +11,7 @@ import os
 ## todo - put these settings in an ini file
 #CONST_DX_PARAM_COUNT = 147
 CONST_DX_PARAM_COUNT = 15
-CONST_DIR = "/Users/myeeking/Dropbox/Research/Projects/DX7_Programmer/dx7-programmer/"
+CONST_DIR = "../"
 #CONST_DX_VST = CONST_DIR + "Dexed.vst"
 CONST_DX_VST = CONST_DIR + "mda DX10.vst"
 CONST_MIDI_FILE = CONST_DIR + "midi_export.mid"
@@ -270,7 +270,7 @@ def zero_nans(data):
 
 def render_preset(synth, index, filename):
 	cmd = get_mrs_watson_preset_command(CONST_MRS_WATSON, synth, CONST_MIDI_FILE, index, filename)
-	print cmd
+#	print cmd
 	os.system(cmd)	
 
 def render_individual(params, synth, filename):

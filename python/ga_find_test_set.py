@@ -22,16 +22,17 @@ if __name__ == '__main__':
 	vst_param_count = 15
 	target_dir = "../runs/" + datetime.datetime.now().strftime("%Y%m%d%H%M%s") + "/"
 	os.mkdir(target_dir)
-
+	print "Generating set of target sounds from 32 presets on "+vst_synth
 	# first generate the target sounds
 	# which are the 32 presets from the synth
 	for i in range(0, 32):
 		filename = target_dir + "preset_"+str(i)+".wav"
+		print "Target "+str(i)+": "+filename
 		ga.render_preset(vst_synth, i, filename)
 
 	for i in range(0, 32):
 		filename = target_dir + "preset_"+str(i)+".wav"
-		print "Looking for "+filename
+		print "Looking for target: "+filename
 		target_mfccs = ga.wav_to_mfcc(filename)
 		data_folder = target_dir + "_preset_"+str(i) + "/"		
 		try:
